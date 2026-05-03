@@ -88,7 +88,7 @@ html, body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Sego
 /* Zen mode */
 body.zen #toolbar { opacity: 0; pointer-events: none; transition: opacity .3s; }
 body.zen:hover #toolbar { opacity: 1; pointer-events: auto; }
-body.zen #preview-pane { display: none; }
+body.zen #preview-pane { display: block;; }
 body.zen #editor-pane { flex: 1; border-right: none; }
 
 /* Responsive */

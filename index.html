@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Easy-MD - Markdown Editor</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="toolbar">
+    <div class="toolbar-left">
+      <div class="logo">Easy-MD</div>
+      <div class="divider"></div>
+      <button class="tb" data-action="bold" title="Bold (Ctrl+B)"><b>B</b></button>
+      <button class="tb" data-action="italic" title="Italic (Ctrl+I)"><i>I</i></button>
+      <button class="tb" data-action="strike" title="Strikethrough"><s>S</s></button>
+      <button class="tb" data-action="heading" title="Heading">H</button>
+      <button class="tb" data-action="quote" title="Quote">&ldquo;</button>
+      <button class="tb" data-action="code" title="Code">&lt;/&gt;</button>
+      <button class="tb" data-action="ul" title="Bullet List">&middot;</button>
+      <button class="tb" data-action="ol" title="Numbered List">1.</button>
+      <button class="tb" data-action="link" title="Link (Ctrl+K)">&#x1F517;</button>
+      <button class="tb" data-action="image" title="Image">&#x1F5BC;</button>
+      <button class="tb" data-action="hr" title="Horizontal Rule">&mdash;</button>
+      <button class="tb" data-action="table" title="Table">&#x25A1;</button>
+    </div>
+    <div class="toolbar-right">
+      <span id="save-status"></span>
+      <button class="tb" id="btn-export" title="Export">&#x21E9;</button>
+      <button class="tb" id="btn-open" title="Open File">&#x1F4C4;</button>
+      <button class="tb" id="btn-zen" title="Zen Mode">&#x1F33A;</button>
+      <button class="tb" id="btn-dark" title="Dark Mode">&#x263E;</button>
+      <button class="tb" id="btn-settings" title="Settings">&#x2699;</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <div id="editor-pane"><div id="editor"></div></div>
+    <div id="preview-pane"><div id="preview"></div></div>
+  </main>
+
+  <input type="file" id="file-input" accept=".md,.txt,.html" hidden>
+  <div id="drag-overlay" class="hidden">Drop file here</div>
+
+  <div id="export-menu" class="dropdown hidden">
+    <button data-export="md">Export as .md</button>
+    <button data-export="html">Export as .html</button>
+    <button data-export="pdf">Export as .pdf</button>
+  </div>
+
+  <div id="settings-menu" class="dropdown hidden">
+    <div class="section">
+      <label class="dropdown-label"><span>Word Wrap</span><input type="checkbox" id="set-wrap" checked></label>
+      <label class="dropdown-label"><span>Line Numbers</span><input type="checkbox" id="set-lines" checked></label>
+      <label class="dropdown-label"><span>Auto Save</span><input type="checkbox" id="set-autosave" checked></label>
+    </div>
+    <div class="section">
+      <div class="section-label">Keybindings</div>
+      <label class="dropdown-label"><input type="radio" name="kb" value="default" checked> Default</label>
+      <label class="dropdown-label"><input type="radio" name="kb" value="vim"> Vim</label>
+      <label class="dropdown-label"><input type="radio" name="kb" value="emacs"> Emacs</label>
+    </div>
+    <div class="section"><button class="danger" id="clear-data">Clear Saved Data</button></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
